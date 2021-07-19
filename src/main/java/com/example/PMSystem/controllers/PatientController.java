@@ -3,14 +3,11 @@ package com.example.PMSystem.controllers;
 import com.example.PMSystem.model.Patients;
 import com.example.PMSystem.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PatientController {
@@ -31,6 +28,9 @@ public class PatientController {
         return "Successfully Created Patient";
     }
 
-
+    @GetMapping(value = "/patient/{id}")
+    public Patients getPatient(String id){
+        return patientRepository.findById(id);
+    }
 
 }
