@@ -4,6 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @SpringBootApplication
 @Document(collection = "Patients")
 public class Patients {
@@ -16,30 +18,30 @@ public class Patients {
 	private String dob;
 	private String address;
 	private String allergies;
-	private String createdDate;
-	private String updatedDte;
+	private Date createdDate;
+	private Date updatedDte;
 
 	public Patients() {
 		super();
 	}
 
-	public String getCreatedDate() {
+	public Date getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(String createdDate) {
+	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 
-	public String getUpdatedDte() {
+	public Date getUpdatedDte() {
 		return updatedDte;
 	}
 
-	public void setUpdatedDte(String updatedDte) {
+	public void setUpdatedDte(Date updatedDte) {
 		this.updatedDte = updatedDte;
 	}
 
-	public Patients(long id, String name, double age, String nic, String dob, String address, String allergies, String createdDate, String updatedDte) {
+	public Patients(long id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte) {
 		this.id = id;
 		this.name = name;
 		this.age = age;

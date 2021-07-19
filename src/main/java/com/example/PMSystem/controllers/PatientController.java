@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -24,8 +25,10 @@ public class PatientController {
 
     @PostMapping(value = "/create")
     public String createPatiet(@RequestBody Patients patient){
+        patient.setCreatedDate(new Date());
+        patient.setUpdatedDte(new Date());
         Patients insertedPatient = patientRepository.insert(patient);
-        return "Student Created"+insertedPatient.getName();
+        return "Successfully Created Patient";
     }
 
 
