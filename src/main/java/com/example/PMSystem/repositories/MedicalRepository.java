@@ -1,9 +1,9 @@
 package com.example.PMSystem.repositories;
 
-import com.example.PMSystem.model.Patients;
+import com.example.PMSystem.model.Medicals;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PatientRepository extends MongoRepository<Patients, Long> {
+public interface MedicalRepository extends MongoRepository<Medicals,Long> {
 }

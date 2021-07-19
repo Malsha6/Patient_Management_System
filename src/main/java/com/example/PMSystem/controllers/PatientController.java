@@ -18,13 +18,13 @@ public class PatientController {
     @Autowired
     public PatientRepository patientRepository;
 
-    @GetMapping (value = "/all")
-    public List<Patients> getAllPatients(){
-        return patientRepository.findAll();
-    }
+    @GetMapping (value = "/patient/all")
+    public List<Patients> getAllPatients(){ return patientRepository.findAll(); }
 
-    @PostMapping(value = "/create")
-    public String createPatiet(@RequestBody Patients patient){
+    @PostMapping(value = "/patient/create")
+    public String createPatient(@RequestBody Patients patient){
+        long patientCount = patientRepository.count();
+        patient.setId(patientCount+1);
         patient.setCreatedDate(new Date());
         patient.setUpdatedDte(new Date());
         Patients insertedPatient = patientRepository.insert(patient);
