@@ -39,11 +39,18 @@ public class PatientController {
 //    }
 
     @GetMapping("/patient/{id}")
-    public Patients getPatient(@PathVariable("id") @NotNull String id){
+    public Optional<Patients> getPatient(@PathVariable("id") @NotNull String id){
         System.out.println(id);
-//        System.out.println(patientRepository.findById(id));
-
+        System.out.println(patientRepository.findById(id));
         return patientRepository.findById(id);
     }
+
+//    @GetMapping("/patient/{id}")
+//    public Patients getPatient(@PathVariable("id") @NotNull String id){
+//        System.out.println(id);
+////        System.out.println(patientRepository.findById(id));
+//
+//        return patientRepository.findById(id);
+//    }
 
 }
