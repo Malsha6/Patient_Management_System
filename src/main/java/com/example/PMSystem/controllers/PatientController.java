@@ -2,9 +2,11 @@ package com.example.PMSystem.controllers;
 
 import com.example.PMSystem.model.Patients;
 import com.example.PMSystem.repositories.PatientRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.PublicKey;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -28,8 +30,19 @@ public class PatientController {
         return "Successfully Created Patient";
     }
 
-    @GetMapping(value = "/patient/{id}")
-    public Patients getPatient(String id){
+
+//    @GetMapping("/patient/{id}")
+//    public Optional<Patients> getPatient(@PathVariable("id") @NotNull String id){
+//        System.out.println(id);
+//        System.out.println(patientRepository.findById(id));
+//        return patientRepository.findById(id);
+//    }
+
+    @GetMapping("/patient/{id}")
+    public Patients getPatient(@PathVariable("id") @NotNull String id){
+        System.out.println(id);
+//        System.out.println(patientRepository.findById(id));
+
         return patientRepository.findById(id);
     }
 
