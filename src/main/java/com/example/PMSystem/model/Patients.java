@@ -11,7 +11,7 @@ import java.util.Date;
 public class Patients {
 
 	@Id
-	private long id;
+	private int id;
 	private String name;
 	private double age;
 	private String nic;
@@ -41,7 +41,7 @@ public class Patients {
 		this.updatedDte = updatedDte;
 	}
 
-	public Patients(long id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte) {
+	public Patients(int id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -53,11 +53,11 @@ public class Patients {
 		this.updatedDte = updatedDte;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
