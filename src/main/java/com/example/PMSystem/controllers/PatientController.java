@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class PatientController {
@@ -53,7 +52,6 @@ public class PatientController {
     @PutMapping("/patient/{id}")
     public String updatebyId(@PathVariable("id") @NotNull int id, @RequestBody Patients updatePatient){
         Patients existingPatient = patientRepository.findById(id);
-        System.out.println(updatePatient.getName());
         existingPatient.setName(updatePatient.getName());
         existingPatient.setAge(updatePatient.getAge());
         existingPatient.setNic(updatePatient.getNic());
