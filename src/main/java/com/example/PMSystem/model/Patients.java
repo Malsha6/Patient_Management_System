@@ -1,10 +1,13 @@
 package com.example.PMSystem.model;
 
+import lombok.Builder;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @SpringBootApplication
 @Document(collection = "Patients")
@@ -20,6 +23,19 @@ public class Patients {
 	private String allergies;
 	private Date createdDate;
 	private Date updatedDte;
+
+	@Builder.Default
+	private List<Visits> visits = new ArrayList<>();
+
+	public List<Visits> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(List<Visits> comments) {
+		this.visits = comments;
+	}
+
+
 
 	public Patients() {
 		super();
