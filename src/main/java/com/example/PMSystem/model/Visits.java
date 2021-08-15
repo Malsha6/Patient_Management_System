@@ -12,7 +12,7 @@ public class Visits {
 
     @Id
     private int id;
-    private Date createdDate;
+//    private Date createdDate;
     private String disease;
     private String notes;
 
@@ -28,14 +28,13 @@ public class Visits {
         this.id = id;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
+//    public Date getCreatedDate() {
+//        return createdDate;
+//    }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
+//    public void setCreatedDate(Date createdDate) {
+//        this.createdDate = createdDate;
+//    }
     public String getDisease() {
         return disease;
     }

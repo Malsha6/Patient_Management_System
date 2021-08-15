@@ -27,21 +27,38 @@ public class Patients {
 	@Builder.Default
 	private List<Visits> visits = new ArrayList<>();
 
-	public List<Visits> getVisits() {
-		return visits;
-	}
-
-	public void setVisits(List<Visits> comments) {
-		this.visits = comments;
-	}
-
 
 
 	public Patients() {
 		super();
 	}
 
-	public Date getCreatedDate() {
+    public Patients(int id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.nic = nic;
+        this.dob = dob;
+        this.address = address;
+        this.allergies = allergies;
+        this.createdDate = createdDate;
+        this.updatedDte = updatedDte;
+    }
+
+    public Patients(int id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte, List<Visits> visits) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.nic = nic;
+        this.dob = dob;
+        this.address = address;
+        this.allergies = allergies;
+        this.createdDate = createdDate;
+        this.updatedDte = updatedDte;
+        this.visits = visits;
+    }
+
+    public Date getCreatedDate() {
 		return createdDate;
 	}
 
@@ -57,17 +74,6 @@ public class Patients {
 		this.updatedDte = updatedDte;
 	}
 
-	public Patients(int id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte) {
-		this.id = id;
-		this.name = name;
-		this.age = age;
-		this.nic = nic;
-		this.dob = dob;
-		this.address = address;
-		this.allergies = allergies;
-		this.createdDate = createdDate;
-		this.updatedDte = updatedDte;
-	}
 
 	public int getId() {
 		return id;
@@ -124,4 +130,13 @@ public class Patients {
 	public void setAge(double age) {
 		this.age = age;
 	}
+
+
+    public List<Visits> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<Visits> comments) {
+        this.visits = comments;
+    }
 }
