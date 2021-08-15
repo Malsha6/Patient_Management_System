@@ -46,4 +46,35 @@ public class VisitController {
         }
         return null;
     }
+
+    @DeleteMapping("/patient/{id}/visits/{visitid}")
+    public String deleteSingleVisit(@PathVariable("id") final int patientId , @PathVariable("visitid") final int visitId){
+        Patients patientObj = patientRepository.findById(patientId);
+        List<Visits> allVisits = patientObj.getVisits();
+        for (Visits visit : allVisits){
+            if (visit.getId() == visitId) {
+                allVisits.remove(visit);
+                patientObj.setVisits(allVisits);
+                patientRepository.save(patientObj);
+                return "Successfully Removed Visit";
+            }
+        }
+        return null;
+    }
+
+    @PutMapping("/patient/{id}/visits/{visitid}")
+    public String updateSingleVisit(@PathVariable("id") final int patientId , @PathVariable("visitid") final int visitId, @RequestBody Visits visits){
+        Patients patientObj = patientRepository.findById(patientId);
+        List<Visits> allVisits = patientObj.getVisits();
+        for (Visits visit : allVisits){
+            if (visit.getId() == visitId) {
+                allVisits.remove(visit);
+                allVisits.add(visits);
+                patientObj.setVisits(allVisits);
+                patientRepository.save(patientObj);
+                return "Successfully Updated Visit";
+            }
+        }
+        return null;
+    }
 }
