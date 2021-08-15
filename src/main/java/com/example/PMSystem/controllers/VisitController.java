@@ -34,4 +34,16 @@ public class VisitController {
         patientRepository.save(patientObj);
         return "Successfully Created Visit";
     }
+
+    @GetMapping("/patient/{id}/visits/{visitid}")
+    public Visits findSingleVisit(@PathVariable("id") final int patientId , @PathVariable("visitid") final int visitId){
+        Patients patientObj = patientRepository.findById(patientId);
+        List<Visits> allVisits = patientObj.getVisits();
+        for (Visits visit : allVisits){
+            if (visit.getId() == visitId) {
+                return visit;
+            }
+        }
+        return null;
+    }
 }
