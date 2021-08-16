@@ -12,9 +12,10 @@ public class Visits {
 
     @Id
     private int id;
-//    private Date createdDate;
     private String disease;
     private String notes;
+    private Date createdDate;
+    private Date updatedDate;
 
     public Visits() {
         super();
@@ -28,13 +29,22 @@ public class Visits {
         this.id = id;
     }
 
-//    public Date getCreatedDate() {
-//        return createdDate;
-//    }
+    public Date getCreatedDate() {
+        return createdDate;
+    }
 
-//    public void setCreatedDate(Date createdDate) {
-//        this.createdDate = createdDate;
-//    }
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
     public String getDisease() {
         return disease;
     }

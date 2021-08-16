@@ -27,6 +27,11 @@ public class VisitController {
     @PostMapping("/patient/{id}/visits")
     public String addVisits(@PathVariable("id") final int ticketId, @RequestBody Visits visits){
         Patients patientObj = patientRepository.findById(ticketId);
+        int count = patientObj.getVisits().size();
+        count+=1;
+        visits.setId(count);
+        visits.setCreatedDate(new Date());
+        visits.setUpdatedDate(new Date());
         List<Visits> existingVisits = patientObj.getVisits();
         existingVisits.add(visits);
         patientObj.setVisits(existingVisits);
@@ -69,6 +74,7 @@ public class VisitController {
         for (Visits visit : allVisits){
             if (visit.getId() == visitId) {
                 allVisits.remove(visit);
+                visits.setUpdatedDate(new Date());
                 allVisits.add(visits);
                 patientObj.setVisits(allVisits);
                 patientRepository.save(patientObj);
