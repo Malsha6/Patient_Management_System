@@ -4,22 +4,25 @@ import com.example.PMSystem.model.Patients;
 import com.example.PMSystem.repositories.PatientRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PatientController {
 
     @Autowired
     public PatientRepository patientRepository;
 
     @GetMapping (value = "/patient/all")
-    public List<Patients> getAllPatients(){ return patientRepository.findAll(); }
+    public List<Patients> getAllPatients(){ return patientRepository.findAll((Sort.by(Sort.Direction.DESC, "_id"))); }
 
     @PostMapping(value = "/patient/create")
     public String createPatient(@RequestBody Patients patient){
+        System.out.println("cas");
         long patientCount = patientRepository.count();
         patient.setId((int) (patientCount+1));
         patient.setCreatedDate(new Date());

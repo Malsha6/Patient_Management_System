@@ -21,6 +21,7 @@ public class Patients {
 	private String dob;
 	private String address;
 	private String allergies;
+	private String diseases;
 	private Date createdDate;
 	private Date updatedDte;
 
@@ -33,19 +34,20 @@ public class Patients {
 		super();
 	}
 
-    public Patients(int id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte) {
+    public Patients(int id, String name, double age, String nic, String dob, String address, String allergies,String diseases, Date createdDate, Date updatedDte) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.nic = nic;
         this.dob = dob;
         this.address = address;
+		this.diseases = diseases;
         this.allergies = allergies;
         this.createdDate = createdDate;
         this.updatedDte = updatedDte;
     }
 
-    public Patients(int id, String name, double age, String nic, String dob, String address, String allergies, Date createdDate, Date updatedDte, List<Visits> visits) {
+    public Patients(int id, String name, double age, String nic, String dob, String address, String allergies, String diseases, Date createdDate, Date updatedDte, List<Visits> visits) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -53,6 +55,7 @@ public class Patients {
         this.dob = dob;
         this.address = address;
         this.allergies = allergies;
+		this.diseases = diseases;
         this.createdDate = createdDate;
         this.updatedDte = updatedDte;
         this.visits = visits;
@@ -117,6 +120,14 @@ public class Patients {
 
 	public void setAllergies(String allergies) {
 		this.allergies = allergies;
+	}
+
+	public String getDiseases() {
+		return diseases;
+	}
+
+	public void setDiseases(String diseases) {
+		this.diseases = diseases;
 	}
 
 	public void setName(String name) {
