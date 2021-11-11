@@ -22,7 +22,6 @@ public class PatientController {
 
     @PostMapping(value = "/patient/create")
     public String createPatient(@RequestBody Patients patient){
-        System.out.println("cas");
         long patientCount = patientRepository.count();
         patient.setId((int) (patientCount+1));
         patient.setCreatedDate(new Date());
@@ -58,9 +57,11 @@ public class PatientController {
         existingPatient.setName(updatePatient.getName());
         existingPatient.setAge(updatePatient.getAge());
         existingPatient.setNic(updatePatient.getNic());
+        existingPatient.setContact(updatePatient.getContact());
         existingPatient.setDob(updatePatient.getDob());
         existingPatient.setAddress(updatePatient.getAddress());
         existingPatient.setAllergies(updatePatient.getAllergies());
+        existingPatient.setMedicines(updatePatient.getMedicines());
         existingPatient.setUpdatedDte(new Date());
         patientRepository.save(existingPatient);
         return "Successfully Updated";
